@@ -1,0 +1,187 @@
+@media print {
+    a[href]:after {
+        content: none !important;
+    }
+    @page {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    body {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+    #imprimir_pagina {
+        display: none;
+    }
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html,
+body {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#form_auth {
+    width: 320px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    top: calc(50% - 240px);
+    left: calc(50% - 160px);
+    margin: 0 auto;
+    box-shadow: 0 28px 42px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 28px;
+    z-index: 99999999;
+    text-align: center;
+}
+
+.locker_form_icon {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    margin: 10px auto;
+}
+
+#opac_background {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}

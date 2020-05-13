@@ -1,0 +1,19 @@
+{
+    "name": "folhaDeRostoApp",
+    "version": "0.0.1",
+    "description": "Criar e editar folhas de rosto.",
+    "main": "index.js",
+    "scripts": {
+        "devStart": "nodemon server.js"
+    },
+    "author": "euclidesdry@gmail.com",
+    "license": "MIT",
+    "dependencies": {
+        "ejs": "^3.1.2",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "nodemon": "^2.0.3"
+    }
+}

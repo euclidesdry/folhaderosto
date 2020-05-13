@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folha de Rosto</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <form id="form_auth" action="/" method="post">
+        <div class="input-group mb-3">
+            <img class="locker_form_icon" src="assets/img/banco_sol.jpg">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><strong>@</strong></span>
+            </div>
+            <input type="text" class="form-control email-form" placeholder="Nome do Usuário" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">&#x1F512</span>
+            </div>
+            <input type="password" class="form-control password-form" placeholder="Palavra-Chave" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <button id="autenticar_usuario" type="button" class="btn btn-primary w-100">Entrar</button>
+        </div>
+        <p class="" style="font-size: 12px;color: ccc;">&copy;2020 Interdigitos - Todos direitos reservados.</p>
+    </form>
+
+    <br>
+
+    <button id="imprimir_pagina" type="submit">Imprimir</button>
+
+    <span id="opac_background"></span>
+
+    <script src="assets/plugins/jQuery/3.5.1/jQuery.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
