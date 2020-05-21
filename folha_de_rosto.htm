@@ -4,48 +4,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folha de Rosto</title>
+    <title>Folha de Rosto - Banco Sol</title>
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+
+    <!-- ANIMATE -->
+    <link rel="stylesheet" href="assets/plugins/Animate/animate.css">
 </head>
 
-<body>
-    <form id="form_auth" action="/" method="post">
-        <div class="input-group mb-3">
-            <img class="locker_form_icon" src="assets/img/banco_sol.jpg">
-        </div>
+<body class="pt-5" aproved-login="no-aproved">
+    <nav class="fr_menu_topo nav d-flex justify-content-center pl-4 pr-4">
+        <h2>Folhas de Rosto - Banco Sol</h2>
+    </nav>
 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><strong>@</strong></span>
+    <div class="fr_grid_ row w-100 pt-5 mt-5 ml-0 mr-0">
+        <div class="fr_grid_navegacao col-4 pt-5">
+            <div class="lista_folha_rosto mt-5">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" num="1">Abertura de Conta</a>
+                    <a href="#" class="list-group-item list-group-item-action" num="2">Contrato de Adesao Cartao Visa</a>
+                    <a href="#" class="list-group-item list-group-item-action" num="3">Pedido de Adesao Cartao de Debito - Multicaixa</a>
+                    <a href="#" class="list-group-item list-group-item-action" num="4">Processo de Credito</a>
+                    <a href="#" class="list-group-item list-group-item-action" num="5">Processo de Microcredito</a>
+                    <a href="#" class="list-group-item list-group-item-action" num="6">Transferencia</a>
+                </div>
             </div>
-            <input type="text" class="form-control email-form" placeholder="Nome do Usuário" aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">&#x1F512</span>
+        <div class="fr_grid_paginas col-8">
+            <section class="caixa_folha_rosto text-center">
+                <h2 class="fr_titulo_paginas text-center font-weight-bold mb-5">
+                    Abertura de Conta
+                </h2>
+                <table class="table fr_folha_a4">
+                    <caption class="fr_rodape text-center mt-5 pt-5" style="margin-top: 15rem !important;">&copy;2020 Interdigitos - Todos direitos reservados. <span id="fr_id_usuario" class="ml-5">BSOL001JB</span></caption>
+
+                    <tbody class="fr_folha mb-5 pb-5 w-100 active" num="1">
+                        <tr>
+                            <td>
+                                <h5>Nome:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Joao Bravo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Numero de Conta:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_conta" type="text" placeholder="Ex.: 815140043258"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Agencia:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_agencia" type="text" placeholder="Ex.: 001"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Data:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_data" type="text" placeholder="Ex.: 22-02-2020"></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="fr_folha mb-5 pb-5 w-100" num="2">
+                        <tr>
+                            <td>
+                                <h5>Balcao:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_agencia" type="text" placeholder="Ex.: 001"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Numero do Cartao:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_cartao" type="text" placeholder="Ex.: 8151 4004 3258 8564"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Nome:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Joao Bravo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Data:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_data" type="text" placeholder="Ex.: 22-02-2020"></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="fr_folha mb-5 pb-5 w-100" num="3">
+                        <tr>
+                            <td>
+                                <h5>Nome:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Joao Bravo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Numero do Cartao:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_cartao" type="text" placeholder="Ex.: 8151 4004 3258 8564"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Data:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_data" type="text" placeholder="Ex.: 22-02-2020"></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="fr_folha mb-5 pb-5 w-100" num="4">
+                        <tr>
+                            <td>
+                                <h5>Nome:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Joao Bravo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Numero de Conta:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_conta" type="text" placeholder="Ex.: 815140043258"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Montante:</h5>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input class="form-control fr_a4_input fr_imput_montante" type="text" placeholder="Ex.: 85.891.003,45">
+                                    </div>
+                                    <div class="col-4">
+                                        <select id="my-select" class="form-control fr_a4_input custom-select">
+                                            <option>AKZ</option>
+                                            <option>USD</option>
+                                            <option>EUR</option>
+                                            <option>ZAR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Data:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_data" type="text" placeholder="Ex.: 22-02-2020"></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="fr_folha mb-5 pb-5 w-100" num="5">
+                        <tr>
+                            <td>
+                                <h5>Nome:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Joao Bravo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Numero de Conta:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_conta" type="text" placeholder="Ex.: 815140043258"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Proposta Nº:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_proposta" type="text" placeholder="Ex.: 04154"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Montante:</h5>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input class="form-control fr_a4_input fr_imput_montante" type="text" placeholder="Ex.: 85.891.003,45">
+                                    </div>
+                                    <div class="col-4">
+                                        <select id="my-select" class="form-control fr_a4_input custom-select">
+                                            <option>AKZ</option>
+                                            <option>USD</option>
+                                            <option>EUR</option>
+                                            <option>ZAR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Data:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_data" type="text" placeholder="Ex.: 22-02-2020"></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="fr_folha mb-5 pb-5 w-100" num="6">
+                        <tr>
+                            <td>
+                                <h5>Ordenante:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Joao Bravo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Conta Ordenante:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_conta" type="text" placeholder="Ex.: 815140043258"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Beneficiario:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_nome" type="text" placeholder="Ex.: Bernardo Afonso"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Conta Beneficiario:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_conta" type="text" placeholder="Ex.: 815140043258"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Montante:</h5>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <input class="form-control fr_a4_input fr_imput_montante" type="text" placeholder="Ex.: 85.891.003,45">
+                                    </div>
+                                    <div class="col-5">
+                                        <select id="my-select" class="form-control fr_a4_input custom-select">
+                                            <option>AKZ</option>
+                                            <option>USD</option>
+                                            <option>EUR</option>
+                                            <option>ZAR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h5>Data:</h5>
+                            </td>
+                            <td><input class="form-control fr_a4_input fr_imput_data" type="text" placeholder="Ex.: 22-02-2020"></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td class="fr_button_action_content">
+                                <div class="w-100 d-flex justify-content-end mt-2">
+                                    <span class="text-right float-right position-relative">
+                                        <button id="limpar_formulario" class="btn btn-outline-dark d-inline-block" type="submit">Limpar Formulário</button>
+                                        <button id="imprimir_pagina" class="btn btn-primary d-inline-block" type="submit">Imprimir</button>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <div id="fr_janela_modal">
+        <form id="form_auth" class="animate__animated animate__fadeInUp" action="#" method="post">
+            <div class="input-group mb-3">
+                <img class="locker_form_icon" src="assets/img/banco_sol.jpg">
             </div>
-            <input type="password" class="form-control password-form" placeholder="Palavra-Chave" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
 
-        <div class="input-group mb-3">
-            <button id="autenticar_usuario" type="button" class="btn btn-primary w-100">Entrar</button>
-        </div>
-        <p class="" style="font-size: 12px;color: ccc;">&copy;2020 Interdigitos - Todos direitos reservados.</p>
-    </form>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><strong>&commat;</strong></span>
+                </div>
+                <input type="text" class="form-control email-form" placeholder="Nome do Usuário" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
 
-    <br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">&#x1F512</span>
+                </div>
+                <input type="password" class="form-control password-form" placeholder="Palavra-Chave " aria-label="Username" aria-describedby="basic-addon1">
+            </div>
 
-    <button id="imprimir_pagina" type="submit">Imprimir</button>
-
-    <span id="opac_background"></span>
+            <div class="input-group mb-3">
+                <button id="autenticar_usuario" type="button" class="btn btn-primary w-100">Entrar</button>
+            </div>
+            <p class=" " style="font-size: 12px;color: ccc; ">&copy;2020 Interdigitos - Todos direitos reservados.</p>
+        </form>
+    </div>
 
     <script src="assets/plugins/jQuery/3.5.1/jQuery.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/plugins/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
+    <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/folharosto.js"></script>
 </body>
 
 </html>
