@@ -38,7 +38,8 @@
     .nav,
     .lista_folha_rosto,
     #fr_janela_modal,
-    .fr_button_action_content {
+    .fr_button_action_content,
+    #fr-gerir-utilizadores {
         width: 0 !important;
         height: 0 !important;
         display: none !important;

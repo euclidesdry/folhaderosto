@@ -1,6 +1,6 @@
 {
     "name": "folhaDeRostoApp",
-    "version": "0.0.1",
+    "version": "0.2.1",
     "description": "Criar e editar folhas de rosto.",
     "main": "src/index.js",
     "scripts": {
@@ -18,7 +18,7 @@
         "global": "^4.4.0",
         "mongoose": "^5.9.14",
         "mssql": "^6.2.0",
-        "tedious": "^8.3.0"
+        "random": "^2.2.0"
     },
     "devDependencies": {
         "dotenv": "^8.2.0",

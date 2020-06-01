@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Folha de Rosto - Banco Sol</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./assets/plugins/fontawesome-free-5.13.0-web/css/all.css">
 
     <!-- ANIMATE -->
-    <link rel="stylesheet" href="assets/plugins/Animate/animate.css">
+    <link rel="stylesheet" href="./assets/plugins/Animate/animate.css">
 </head>
 
-<body class="pt-5" aproved-login="no-aproved">
+<body class="pt-5" aproved-login="aproved">
     <nav class="fr_menu_topo nav d-flex justify-content-center pl-4 pr-4">
         <h2>Folhas de Rosto - Banco Sol</h2>
     </nav>
@@ -39,7 +42,16 @@
                     Abertura de Conta
                 </h2>
                 <table class="table fr_folha_a4">
-                    <caption class="fr_rodape text-center mt-5 pt-5" style="margin-top: 15rem !important;">&copy;2020 Interdigitos - Todos direitos reservados. <span id="fr_id_usuario" class="ml-5">BSOL001JB</span></caption>
+                    <caption class="fr_rodape text-center mt-0 pt-0" style="margin-top: 10rem !important;">
+                        <div class="admin-dashboard w-100 position-relative d-block text-right p-3 m-3">
+                            <!-- Button trigger modal -->
+                            <button id="fr-gerir-utilizadores" type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#janelaDashboard">
+                                Gerir Utilizadores
+                            </button>
+                        </div>
+                        &copy;2020 Interdigitos - Todos direitos reservados.
+                        <span id="fr_id_usuario" class="ml-5">BSOL001JB</span>
+                    </caption>
 
                     <tbody class="fr_folha mb-5 pb-5 w-100 active" num="1">
                         <tr>
@@ -293,6 +305,129 @@
             </section>
         </div>
     </div>
+
+    <!-- Janela Modal Dashboard-->
+
+    <div class="modal fade" id="janelaDashboard" tabindex="-1" role="dialog" aria-labelledby="ariaJanelaDashboard" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 860px; margin-top: 100px !important;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="titleJanelaDashboard">Administrador: Gerir Utilizadores</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow-y: auto !important;max-height: 480px!important;">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Identificador</th>
+                                <th scope="col">Gestão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>administrador.sistema</td>
+                                <td>asistema@interdigitos.co.ao</td>
+                                <td>BSOL001AD</td>
+                                <td>
+                                    <button class="btn btn-outline-dark" data-action="update"><i class="fas fa-user-edit"></i></button>
+                                    <button class="btn btn-dark" data-action="update-password"><i class="fas fa-key"></i></button>
+                                    <button class="btn btn-danger" data-action="delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button data-addNewUser="add" class="btn btn-primary" data-toggle="modal" data-target="#janelaAddUser" data-whatever="@getbootstrap">Adicionar Novo Utilizador</button>
+                    <button type="button" class="btn btn-outline-dark ml-3" data-dismiss="modal">Fechar Janela</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Janela Modal AddUser-->
+
+    <div class="modal fade" id="janelaAddUser" tabindex="-1" role="dialog" aria-labelledby="ariaJanelaAddUser" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleJanelaAddUser">Adicionar Novo Utilizador</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAddNewUser">
+                        <div class="form-group">
+                            <input type="name" class="form-control" id="recipient-nome" placeholder="Primeiro e o Último Nome">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="recipient-usuario" placeholder="Nome do Utilizador" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="recipient-email" placeholder="Email do Utilizador">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="recipient-senha" placeholder="Senha do Utilizador">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="recipient-senha2" placeholder="Confirmar Senha do Utilizador">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                    <button window-data-button="add-user" type="button" class="btn btn-primary">Criar Usuário</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Janela Modal EditUser-->
+
+    <div class="modal fade" id="janelaEditUser" tabindex="-1" role="dialog" aria-labelledby="ariaJanelaEditUser" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleJanelaEditUser">Editar Dados do Utilizador</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAddNewUser">
+                        <div class="form-group">
+                            <input type="name" class="form-control" id="recipient-nome" placeholder="Primeiro e o Último Nome">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="recipient-usuario" placeholder="Nome do Utilizador" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="recipient-email" placeholder="Email do Utilizador">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="recipient-senha" placeholder="Senha do Utilizador">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="recipient-senha2" placeholder="Confirmar Senha do Utilizador">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-dismiss="modal">Canselar</button>
+                    <button window-data-button="add-user" type="button" class="btn btn-primary">Criar Usuário</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Janela Modal Auth-->
 
     <div id="fr_janela_modal">
         <form id="form_auth" class="animate__animated animate__fadeInUp" action="#" method="post">
