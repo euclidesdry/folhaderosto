@@ -1,4 +1,4 @@
-const sql = require('mssql');
+const mssql = require('mssql');
 
 let configDB = {
     server: "192.168.4.172",
@@ -8,10 +8,8 @@ let configDB = {
     port: 1433,
 }
 
-let dataJson = null;
-
-let Connection = new sql.ConnectionPool(configDB);
-let Request = new sql.Request(Connection);
+let Connection = new mssql.ConnectionPool(configDB);
+let Request = new mssql.Request(Connection);
 
 function database(Query) {
     return new Promise(function(resolve, reject) {
@@ -19,8 +17,12 @@ function database(Query) {
             if (err) console.log(err);
 
             Request.query(Query, function(err, data) {
+
                 if (err) console.log(err);
 
+                //console.log(data.recordset[0]);
+                //console.log(data.rowsAffected[0]);
+                //console.log(data.recordset[0]);
                 resolve(data);
             });
         });
