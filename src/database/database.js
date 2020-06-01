@@ -19,7 +19,6 @@ function database(Query) {
             Request.query(Query, function(err, data) {
 
                 if (err) console.log(err);
-
                 //console.log(data.recordset[0]);
                 //console.log(data.rowsAffected[0]);
                 //console.log(data.recordset[0]);
