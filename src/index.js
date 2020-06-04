@@ -15,6 +15,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get('/', async(req, res) => {
+    res.send({
+        app: 'folhaDeRostoApp',
+        versao: 'v0.2.1',
+        autor: "©2020 Interdigitos LDA",
+        erro: '0x000001',
+        msg_erro: 'Nenhum parametro foi aplicado.'
+    });
+});
+
 require('./controllers/authController')(app);
 
 app.listen(3000);
+//app.listen(3000, '192.168.4.49');

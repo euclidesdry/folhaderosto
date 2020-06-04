@@ -72,18 +72,18 @@ router.post('/register', async(req, res) => {
                     //console.log(data.recordset[0]);
 
                     if (data.rowsAffected[0]) {
-                        res.send([{ mensagem: 'A Criação do usuário "' + _User + '" foi Efectuada Com Sucesso! Clica em "OK" para continuar.', tipo: 'sucesso' }]);
+                        res.send([{ mensagem: 'A criação do usuário "' + _User + '" foi Efectuada Com Sucesso! Clica em "OK" para continuar.', tipo: 'sucesso' }]);
                     } else {
                         res.send([{ mensagem: 'Ocorreu algum erro interno, não foi possível criar o usuário, por favor, contacte a assistência técnica.', tipo: 'erro' }]);
                     }
                 });
 
             } else {
-                return res.status(400).send([{ mensagem: 'Ocorreu um Erro, Credenciais em falta, por favor, introduza as credenciais correctamente!', tipo: 'erro' }]);
+                return res.status(400).send([{ mensagem: 'Ocorreu um erro, Credenciais em falta, por favor, introduza as credenciais correctamente!', tipo: 'erro' }]);
             }
         } else {
             console.error('--=# Folha de Rosto: new user "' + _User + '" already exists.');
-            return res.status(400).send([{ mensagem: 'Ocorreu um Erro, As suas Credenciais já encontra-se cadastrada na base de dados!', tipo: 'erro' }]);
+            return res.status(400).send([{ mensagem: 'Ocorreu um erro, As suas Credenciais já encontra-se cadastrada na base de dados!', tipo: 'erro' }]);
         }
     });
 });
@@ -99,7 +99,7 @@ router.get('/list', async(req, res) => {
             console.log('--=# Folha de Rosto: #User list#: ', data.recordset);
         } else {
             console.error('--=# Folha de Rosto: no data finded.');
-            return res.status(400).send([{ mensagem: 'não foi encontrado nenhum dado.', tipo: 'erro' }]);
+            return res.status(400).send([{ mensagem: 'Não foi encontrado nenhum dado.', tipo: 'erro' }]);
         }
     });
 });
@@ -117,7 +117,7 @@ router.get('/list/user/:userId', async(req, res) => {
     listUser('id, nome_utilizador, email_utilizador, id_utilizador, id_perfil', condition).then(function(data) {
 
         if (data.rowsAffected[0] > 0) {
-            res.send(data.recordset);
+            res.send([{ mensagem: 'Listando...', tipo: 'sucesso' }, data.recordset[0]]);
             console.log('--=# Folha de Rosto: #User list#: ', data.recordset);
         } else {
             console.error('--=# Folha de Rosto: no data finded.');
@@ -146,12 +146,12 @@ router.delete('/delete/user/:userId', async(req, res) => {
                     return res.send([{ mensagem: 'O Usuário "' + data.recordset[0].nome_utilizador + '" foi eliminado da Base de Dados Correctamente, clique em ok para continuar.', tipo: 'sucesso' }]);
                 } else {
                     console.log('--=# Folha de Rosto: Error #User no Deleted#: ' + _userID);
-                    return res.status(400).send([{ mensagem: 'não foi encontrado nenhum usuario com o ID: ' + _userID, tipo: 'erro' }]);
+                    return res.status(400).send([{ mensagem: 'Não foi encontrado nenhum usuario com o ID: ' + _userID, tipo: 'erro' }]);
                 }
             });
         } else {
             console.error('--=# Folha de Rosto: no data of this user has finded.');
-            return res.status(400).send([{ mensagem: 'não foi encontrado nenhum usuario com o ID: ' + _userID, tipo: 'erro' }]);
+            return res.status(400).send([{ mensagem: 'Não foi encontrado nenhum usuario com o ID: ' + _userID, tipo: 'erro' }]);
         }
     });
 });
@@ -166,30 +166,66 @@ router.put('/edit', async(req, res) => {
         _email = req.body.email,
         _password = req.body.password;
 
-    //console.log(' ---###--- ', _name, _email, _password, '---###---');
+    //console.log(' ---###--- ', _id, _name, _email, _password, '---###---');
 
-    listUser('*', `nome_utilizador = '${_name}' OR email_utilizador = '${_email}'`).then(function(dataVerif) {
+    listUser('*', `nome_utilizador = '${_name}' AND id != ${_id} OR email_utilizador = '${_email}' AND id != ${_id}`).then(function(dataVerif) {
 
         if (dataVerif.rowsAffected[0] == 0) {
-            let passHash = crypto.createHash('md5').update(_password).digest("hex");
 
-            editUser(_id, _name, _email, passHash).then(function(data) {
-                //console.log(data);
-                //console.log(data.rowsAffected[0]);
-                //console.log(data.recordset[0]);
+            listUser('*', `id = '${_id}'`).then(function(dataUserSelected) {
 
-                if (data.rowsAffected[0]) {
-                    console.log('data of user "' + _name + '" has been updated.');
-                    res.send([{ mensagem: 'A Alteração no usuário "' + _name + '" foi Efectuada Com Sucesso! Clica em "OK" para continuar.', tipo: 'sucesso' }]);
-                } else {
-                    console.log('data of user "' + _name + '" don\'t has been updated.');
-                    res.send([{ mensagem: 'Ocorreu algum erro interno, não foi possível alterar o usuário, por favor, contacte a assistência técnica.', tipo: 'erro' }]);
-                }
+                let _u_name = (_name != '' && _name != null && typeof _name != 'undefined') ? _name : dataUserSelected.recordset[0].nome_utilizador;
+                let _u_email = (_email != '' && _email != null && typeof _email != 'undefined') ? _email : dataUserSelected.recordset[0].email_utilizador;
+                let _u_password = (_password != '' && _password != null && typeof _password != 'undefined') ? _password : dataUserSelected.recordset[0].senha_utilizador;
+                let passHash = ((_password == '' || _password == null || typeof _password == 'undefined') ? _u_password : crypto.createHash('md5').update(_password).digest("hex"));
+                //console.log(_u_password, passHash);
+
+                editUser(_id, _u_name, _u_email, passHash).then(function(data) {
+                    //console.log(data);
+                    //console.log(data.rowsAffected[0]);
+                    //console.log(data.recordset[0]);
+
+                    if (data.rowsAffected[0]) {
+                        console.log('data of user "' + _name + '" has been updated.');
+                        res.send([{ mensagem: 'A alteração no usuário "' + _name + '" foi Efectuada Com Sucesso! Clica em "OK" para continuar.', tipo: 'sucesso' }]);
+                    } else {
+                        console.log('data of user "' + _name + '" don\'t has been updated.');
+                        res.send([{ mensagem: 'Ocorreu algum erro interno, não foi possível alterar o usuário, por favor, contacte a assistência técnica.', tipo: 'erro' }]);
+                    }
+                });
             });
         } else {
             console.error('--=# Folha de Rosto: new user "' + _name + '" already exists.');
             return res.status(400).send([{ mensagem: 'Ocorreu um Erro, As suas Credenciais já encontra-se cadastrada na base de dados!', tipo: 'erro' }]);
         }
+    });
+});
+
+router.put('/edit/access', async(req, res) => {
+
+    const editUserAccess = require('../models/editUserAccess');
+    const listUser = require('../models/listUser');
+
+    var _id = req.body.id;
+
+    listUser('*', `id = '${_id}'`).then(function(dataUserSelected) {
+
+        let id_perfil = (dataUserSelected.recordset[0].id_perfil == 1) ? 2 : 1;
+        let tipo_perfil = (id_perfil == 1) ? 'Administrador' : 'Usuário Credenciado';
+
+        editUserAccess(_id, id_perfil).then(function(data) {
+            //console.log(data);
+            //console.log(data.rowsAffected[0]);
+            //console.log(data.recordset[0]);
+
+            if (data.rowsAffected[0]) {
+                console.log('data of user "' + dataUserSelected.recordset[0].nome_utilizador + '" has been updated.');
+                res.send([{ mensagem: 'A alteração no usuário "' + dataUserSelected.recordset[0].nome_utilizador + '" para \"' + tipo_perfil + '\" foi Efectuada Com Sucesso! Clica em "OK" para continuar.', tipo: 'sucesso' }]);
+            } else {
+                console.log('data of user "' + dataUserSelected.recordset[0].nome_utilizador + '" don\'t has been updated.');
+                res.send([{ mensagem: 'Ocorreu algum erro interno, não foi possível alterar o usuário, por favor, contacte a assistência técnica.', tipo: 'erro' }]);
+            }
+        });
     });
 });
 

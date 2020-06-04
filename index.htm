@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/plugins/Animate/animate.css">
 </head>
 
-<body class="pt-5" aproved-login="aproved">
+<body class="pt-5" aproved-login="no-aproved">
     <nav class="fr_menu_topo nav d-flex justify-content-center pl-4 pr-4">
         <h2>Folhas de Rosto - Banco Sol</h2>
     </nav>
@@ -383,7 +383,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary" data-dismiss="modal">Canselar</button>
-                    <button window-data-button="add-user" type="button" class="btn btn-primary">Criar Usuário</button>
+                    <button window-data-button="add-user" type="button" class="btn btn-primary">Criar Utilizador</button>
                 </div>
             </div>
         </div>
@@ -401,21 +401,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formAddNewUser">
+                    <form id="formEditUser">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="recipient-usuario" placeholder="Nome do Utilizador">
+                            <input type="text" class="form-control" id="update-recipient-usuario" placeholder="Nome do Utilizador">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="recipient-email" placeholder="Email do Utilizador">
+                            <input type="email" class="form-control" id="update-recipient-email" placeholder="Email do Utilizador">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="recipient-senha" placeholder="Senha do Utilizador">
+                            <input type="password" class="form-control" id="update-recipient-senha" placeholder="Clique duas vezes para Mudar a Senha do Utilizador" disabled="disabled">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary" data-dismiss="modal">Canselar</button>
-                    <button window-data-button="add-user" type="button" class="btn btn-primary">Criar Usuário</button>
+                    <button window-data-button="edit-user" type="button" class="btn btn-primary">Editar Utilizador</button>
                 </div>
             </div>
         </div>
@@ -452,6 +452,7 @@
 
     <script src="assets/plugins/jQuery/3.5.1/jQuery.js"></script>
     <script src="assets/plugins/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
+    <script src="assets/plugins/jqueryValidation/jquery-validation-1.19.2/dist/jquery.validate.min.js"></script>
     <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
     <script src="assets/js/folharosto.js"></script>
